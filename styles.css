@@ -1,0 +1,27 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#location {
+    min-width: 200px;
+    padding: 10px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 6px;
+}
+
+input::placeholder {
+    font-family: 'Inter', sans-serif;
+    color: #b8b8b8;
+}
+
+input:focus-visible {
+    outline-color: #b8b8b8;
+}
