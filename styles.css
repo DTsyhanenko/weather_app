@@ -34,10 +34,6 @@ input:focus-visible {
     color: #b8b8b8;
 }
 
-.weather-info {
-    display: none;
-}
-
 #current {
     min-width: 262px;
     background-color: #eee;
@@ -74,8 +70,4 @@ input:focus-visible {
 
 .weather-icon {
     width: 50px;
-}
-
-.show {
-    display: block;
 }

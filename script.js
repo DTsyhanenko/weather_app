@@ -22,10 +22,10 @@ form.addEventListener("keypress", (e) => {
 
       const weatherInfos = `
       <p id="selected">Selected city: ${cityName}</p>
-      <div class="show weather-info">
+      <div class="weather-info">
           <div id="current">
               <div class="weather-data temp">
-                  <p class="celsius">${tempCelcius}</p>
+                  <p class="celsius">${tempCelcius} °C</p>
                   <p>${weatherDescrition}</p>
               </div>
               <div class="weather-data city">
