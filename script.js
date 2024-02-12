@@ -6,11 +6,9 @@ form.addEventListener("keypress", (e) => {
     return
   } else {
     e.preventDefault()
-    let input = e.target.value
-    const API_CALL = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=28a377ca6ef3c6e32b3f3f51588ebb85`
+    const API_CALL = `https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&appid=28a377ca6ef3c6e32b3f3f51588ebb85`
     getWeather()
-
-    input = ""
+    e.target.value = ""
 
     async function getWeather() {
       const res = await fetch(API_CALL)
@@ -18,6 +16,8 @@ form.addEventListener("keypress", (e) => {
       const cityName = data.name
       const weatherDescrition = data.weather[0].main
       const tempCelcius = Math.round(data.main.temp - 273)
+      const clouds = data.clouds.all
+
       console.log(data)
 
       const weatherInfos = `
@@ -29,7 +29,7 @@ form.addEventListener("keypress", (e) => {
                   <p>${weatherDescrition}</p>
               </div>
               <div class="weather-data city">
-                  <p>Clouds</p>
+                  <p>Clouds ${clouds}%</p>
                   <p>${cityName}, ${data.sys.country}</p>
               </div>
               <div class="weather-data icons">
