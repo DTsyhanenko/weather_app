@@ -71,3 +71,40 @@ input:focus-visible {
 .weather-icon {
     width: 50px;
 }
+
+.week {
+    border-top: 1px solid #eee;
+    min-width: 302px;
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weather-description {
+    font-size: 13px;
+}
+
+.week-day {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.day p, .night p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-align: right;
+}
+
+.day-time {
+    font-size: 10px;
+}
+
+.daily-temp {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.day, .night {
+    margin-bottom: 14px;
+}
