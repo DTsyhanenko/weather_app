@@ -1,5 +1,7 @@
 const container = document.querySelector(".form-container")
 const form = document.getElementById("form")
+const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+const date = new Date()
 
 form.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && e.target.value !== "") {
@@ -37,11 +39,19 @@ form.addEventListener("keypress", (e) => {
                   <img class="weather-icon" src="./assets/rain.png" alt="Cloud with rain">
                 </div>
               </div>
-              <div class="week">
-                <div class="week-day">THU</div>
-                <img class="weather-icon" src="./assets/sun-clouds.png" alt="">
-                <p class="weather-description">Sunny, Cloudly</p>
-                <div class="day-night-temp">
+            </div>
+          `
+        container.insertAdjacentHTML("beforeend", weatherInfos)
+
+        for (let i = 0; i < 5; i++) {
+          const nextDays = date.setDate(date.getDate() + 1)
+          const currentDay = days[date.getDay(nextDays)]
+          const weatherForecast = `
+            <div class="week">
+              <p class="week-day">${currentDay}</p>
+              <img class="weather-icon" src="./assets/sun-clouds.png" alt="">
+              <p class="weather-description">Sunny, Cloudly</p>
+              <div class="day-night-temp">
                 <div class="day">
                   <p class="day-time">Day</p>
                   <p class="daily-temp">4°C</p>
@@ -50,10 +60,10 @@ form.addEventListener("keypress", (e) => {
                   <p class="daily-temp">1°C</p>
                   <p class="day-time">Night</p>
                 </div>
-              </div>
             </div>
           `
-        container.insertAdjacentHTML("beforeend", weatherInfos)
+          container.insertAdjacentHTML("beforeend", weatherForecast)
+        }
       } catch (err) {
         console.log(err)
         /* alert("An error ocurred!") */
