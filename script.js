@@ -20,12 +20,18 @@ form.addEventListener("keypress", (e) => {
     }
 
     const API_CALL = `https://api.openweathermap.org/data/2.5/forecast?q=${e.target.value}&appid=28a377ca6ef3c6e32b3f3f51588ebb85&units=metric`
+
     getWeather()
     e.target.value = ""
 
     async function getWeather() {
       try {
-        const res = await fetch(API_CALL)
+        const res = await fetch(API_CALL, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        })
         const data = await res.json()
         /* const dataList = data.list
         console.log(dataList) */
