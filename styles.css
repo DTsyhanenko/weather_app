@@ -37,7 +37,7 @@ input:focus-visible {
 
 .current {
     min-width: 262px;
-    background-color: #eee;
+    background-color: #bdd7ff;
     padding: 15px 20px;
     margin-bottom: 8px;
     border-radius: 6px;
@@ -108,4 +108,12 @@ input:focus-visible {
 
 .day, .night {
     margin-bottom: 14px;
+}
+
+.current-section {
+    display: none;
+}
+
+.show {
+    display: block;
 }

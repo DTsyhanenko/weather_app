@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js"></script>
     <title>Weather App</title>
 </head>
 <body>
@@ -15,6 +15,23 @@
         <form action="" method="GET" id="form">
             <input type="text" id="location" name="location" placeholder="Type city name here...">
         </form>
+        <div class="current-section">
+            <p class="selected"></p>
+            <div class="weather-info">
+              <div class="current">
+                <div class="weather-data temp">
+                  <p class="celsius"></p>
+                  <p class="description"></p>
+                </div>
+                <div class="weather-data city">
+                  <p class="clouds"></p>
+                </div>
+                <div class="weather-data icons">
+                  <img id="current-weather-icon" class="weather-icon" src="" alt="">
+                </div>
+              </div>
+            </div>
+          </div> 
         
     </div>
 </body>
