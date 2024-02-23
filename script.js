@@ -1,4 +1,4 @@
-import getWeather from "./fetch.js"
+import showWeather from "./fetch.js"
 
 const form = document.getElementById("form")
 const currentWeather = document.querySelector(".current-section")
@@ -16,7 +16,7 @@ form.addEventListener("keypress", (e) => {
       })
     }
 
-    getWeather(e.target.value, "metric")
+    showWeather(e.target.value)
     e.target.value = ""
   }
 })
