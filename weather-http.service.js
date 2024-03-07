@@ -4,13 +4,7 @@ const API_KEY = "28a377ca6ef3c6e32b3f3f51588ebb85"
 async function getWeather(city, units) {
   try {
     const res = await fetch(
-      API_URL +
-        "data/2.5/forecast?q=" +
-        city +
-        "&appid=" +
-        API_KEY +
-        "&units=" +
-        units,
+      `${API_URL}data/2.5/forecast?q=${city}&appid=${API_KEY}&units=${units}`,
       {
         method: "GET",
         headers: {
@@ -26,3 +20,5 @@ async function getWeather(city, units) {
 }
 
 export default getWeather
+
+//`${API_URL}data/2.5/forecast?q=${city}&appid=${API_KEY}&units=${units}`,

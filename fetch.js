@@ -40,54 +40,53 @@ async function showWeather(value) {
     const dayHours = timeFromForecast.getHours()
 
     const tempMax = Math.round(forecast.main.temp_max)
-    const tempMin = Math.round(forecast.main.temp_min)
+    const tempMin = Math.round(forecast.main.temp_kf)
 
-    /* getMaxTemp()
-    getMinTemp()
-
-    function getMaxTemp() {
-      if (dayHours === 9) {
-        return Math.round(forecast.main.temp_max)
-      }
-    }
-
-    function getMinTemp() {
-      if (dayHours === 21) {
-        return Math.round(forecast.main.temp_min)
-      }
-    } */
-
-    getDayNamesFromForecast()
-
-    function getDayNamesFromForecast() {
-      if (dayHours === 12) {
-        const dayFromForecast = dayNames[timeFromForecast.getDay()]
-
-        const forecastWeatherIcon = forecast.weather[0].icon
-        const forecastWeatherDescription = forecast.weather[0].main
-
-        let weatherForecast = `
-          <div class="week">
-            <p class="week-day">${dayFromForecast}</p>
-            <img class="weather-icon" src="${
-              ICON_URL + forecastWeatherIcon + ".png"
-            }" alt="">
-            <p class="weather-description">${forecastWeatherDescription}</p>
-            <div class="day-night-temp">
-              <div class="day">
-                <p class="day-time">Day</p>
-                <p class="daily-temp">${tempMax} °C</p>
-              </div>
-              <div class="night">
-                <p class="daily-temp">${tempMin} °C</p>
-                <p class="day-time">Night</p>
-              </div>
-          </div>
-        `
-        container.insertAdjacentHTML("beforeend", weatherForecast)
-      }
-    }
+    getDayNamesFromForecast(
+      dayNames,
+      dayHours,
+      timeFromForecast,
+      forecast,
+      tempMax,
+      tempMin
+    )
   })
+
+  function getDayNamesFromForecast(
+    dayNames,
+    dayHours,
+    timeFromForecast,
+    forecast,
+    tempMax,
+    tempMin
+  ) {
+    if (dayHours === 12) {
+      const dayFromForecast = dayNames[timeFromForecast.getDay()]
+
+      const forecastWeatherIcon = forecast.weather[0].icon
+      const forecastWeatherDescription = forecast.weather[0].main
+
+      let weatherForecast = `
+        <div class="week">
+          <p class="week-day">${dayFromForecast}</p>
+          <img class="weather-icon" src="${
+            ICON_URL + forecastWeatherIcon + ".png"
+          }" alt="">
+          <p class="weather-description">${forecastWeatherDescription}</p>
+          <div class="day-night-temp">
+            <div class="day">
+              <p class="day-time">Day</p>
+              <p class="daily-temp">${tempMax} °C</p>
+            </div>
+            <div class="night">
+              <p class="daily-temp">${tempMin} °C</p>
+              <p class="day-time">Night</p>
+            </div>
+        </div>
+      `
+      container.insertAdjacentHTML("beforeend", weatherForecast)
+    }
+  }
 }
 
 export default showWeather
